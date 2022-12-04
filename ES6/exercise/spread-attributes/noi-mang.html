@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noi mang</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
+<script>
+    let blog1Subscribers = ['billy@example.com', 'sally@gmail.com'];
+    let blog2Subscribers = ['timmy@gmail.com', 'tammy@example.com', 'tommy@gmail.com'];
+    let subscriber = [...blog1Subscribers, ...blog2Subscribers];
+    console.log(subscriber);
+    document.getElementById("root").innerHTML = subscriber;
+</script>
