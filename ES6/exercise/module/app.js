@@ -1,5 +1,5 @@
-import { fullName, enjoy, greeting} from "./main";
+import { fullName, enjoy, greeting} from "./main.js";
 
-alert(fullName);
-alert(enjoy);
-alert(greeting(fullName, enjoy));
+console.log(fullName);
+console.log(enjoy);
+console.log(greeting(fullName, enjoy));

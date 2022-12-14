@@ -14,9 +14,9 @@ function getImage() {
     getJsonImage(key).then(result =>{
         console.log(result.images.downsized.url);
         // lay ra duong dan
-        // let imgSrc = result.images.downsized.url;
+        let imgSrc = result.images.downsized.url;
         // // set lai src cho anh
-        // document.getElementById("result").setAttribute("src", imgSrc);
+        document.getElementById("result").setAttribute("src", imgSrc);
     })
 }
 // getImage();

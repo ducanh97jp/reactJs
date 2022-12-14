@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    class User{
+        name;
+        password;
+        constructor(name, password) {
+            this.name = name;
+            this.password = password;
+        }
+        showInfo() {
+            return "Ten toi la: " + this.name + "Mat khau la: " + this.password;
+        }
+
+        showInfo2() {
+            return `Ten toi la ${this.name} Mat khau la: ${this.password}`
+        }
+        // $ ky hieu day la bien
+        
+    }
+    let kax = new User("ahs", "qhwsh");
+
+    // thien ve huong doi tuong
+
+    function User1() {
+        // thuoc tinh
+        this.name = "";
+        this.password = "";
+
+        // phuong thuc
+        this.showInfo = function() {
+            return "Ten toi la: " + this.name + "Mat khau la: " + this.password;
+        }
+    }
+    let ka2 = new User1;
+    ka2.name = "vu..";
+    ka2.password = "qghhss";
+</script>
