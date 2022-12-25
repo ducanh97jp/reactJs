@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arrAcc = ["123abc_","_abc123","______","123456" ,"abcdefg",".@","12345","1234_","abcde" ];
+        function isAccount(str) {
+            let regexp = /^[_a-z0-9]{6,}$/;
+            if (regexp.test(str)) {
+                return true;
+            }
+            return false;
+        }
+        for (let i = 0;i<arrAcc.length; i ++) {
+            console.log(isAccount(arrAcc[i]));
+        }
+    </script>
+</body>
+
+</html>
