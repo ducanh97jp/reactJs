@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let zipcode = "03201-2150";
+        console.log(is_usZipCode(zipcode));
+        let zipcode1 = "7892";
+        console.log(is_usZipCode(zipcode1));
+        function is_usZipCode(str) {
+        let regexp = /^[0-9]{5}(?:-[0-9]{4})?$/;
+        if (regexp.test(str)) {
+            return true;
+        } 
+        return false;
+}
+    </script>
+</body>
+</html>
