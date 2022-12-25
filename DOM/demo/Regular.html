@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+    ^	So khớp với bất kỳ chuỗi nào bắt đầu bằng chuỗi đó. Ví dụ ^n – bất kỳ chuỗi nào bắt đầu bằng ký tự n
+    $	So khớp với bất kỳ chuỗi nào kết thúc bằng chuỗi đó. Ví dụ $n – bất kỳ chuỗi nào kết thúc bằng ký tự n
+    .	Khớp với bất kỳ ký tự nào
+    *	Khớp với ký tự trước nó 0 hoặc nhiều lần. Đây là một ký tự đại diện
+    +	Khới với ký tự trước nó 1 hoặc nhiều lần
+    ?	Khớp với ký tự trước nó 0 hoặc một lần
+    ()	Nhóm các ký tự khớp vào trong cặp dấu ngoặc đơn để sử dụng sau
+    {n}	Khớp với ký tự trước nó ít nhất n lần
+    {n, m}	Khớp với ký tự trước nó ít nhất n lần nhưng không quá m lần
+    []	Định nghĩa một tập ký tự để tiến hành so khớp với bất kỳ ký tự nào nằm trong tập này. Ký tự này có thể sử dụng dải như 0-9 để so khớp các chữ số hoặc a-z để so khớp các ký tự
+    [^]	Việc sử dụng dấu ^ trong một tập ký tự sẽ phủ định tập ký tự đó, nghĩa là các ký tự bên trong tập không thể xuất hiện trong chuỗi so khớp
+    \	Được sử dụng như một ký tự thoát, nghĩa là những gì theo sau dấu gạch chéo được cọi là một ký tự thông thường thay vì có ý nghĩa đặc biệt. Dấu \ cũng có thể được sử dụng để khai báo các bộ ký tự đặc biệt.
+    Ngoài ký tự đặc biệt, còn nhiều chuỗi ký tự được dùng để so khớp với các nhóm ký tự hoặc các ký tự không phải chữ số. Một số chuỗi ký tự như vậy được trình bày trong bảng sau:
+    
+    Ký tự	Chuỗi so khớp
+    \b	Tìm và so khớp chuỗi nằm sau ký tự \b với những ký tự ở vị trí bắt đầu và kết thúc của một từ. Ví dụ: \bW3 sẽ khớp với chuỗi W3 trong từ W3School.
+    \B	Tìm và so khớp chuỗi nằm sau ký tự \B với những ký tự không nằm ở bị trí bắt đầu và kết thúc của một từ. Ví dụ: chuỗi School trong từ W3School sẽ so khớp với biểu thức chính quy \Bschool
+    \c	Ký tự Control khi sử dụng kết hợp với ký tự khác. Ví dụ \cA là ký tự thoát cho Control-A
+    \d	Chữ số
+    \D	Không phải chữ số
+    \n	Xuống dòng
+    \r	Về đầu dòng
+    \s	Ký tự khoảng trắng (dấu cách hoặc tab)
+    \S	Một ký tự không phải là khoảng trắng
+    \t	Dấu tab
+    \w	Ký tự chữ hoặc số
+    \W	Ký tự không phải là chữ hay số
+    Ví dụ:-->
+    s/([0-9]+)\.([0-9]+)(\/[0-9]+)/$1\.$2\.0$3/
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">Click!</button>
+</body>
+
+</html>
+<script>
+    // Để chỉ định một trình xử lý sự kiện, bạn đặt thuộc tính thành một hàm như được hiển thị trong ví dụ:
+    let btn = document.querySelector('#btn');
+    btn.onclick = function () {
+        alert('Clicked!');
+        // bạn có thể truy cập các thuộc tính của phần tử bên trong trình xử lý sự kiện:Ket qua : btn
+        alert(this.id);
+    };
+    //Phương thức addEventListener():
+    //  chấp nhận ba đối số: tên sự kiện, hàm xử lý sự kiện và giá trị Boolean chỉ thị phương thức gọi trình xử lý sự kiện. Ví dụ:
+
+    btn.addEventListener('click', function (event) {
+        alert(event.type); // Ket qua: click
+    });
+    // Có thể thêm nhiều trình xử lý sự kiện để xử lý một sự kiện duy nhất, như sau:
+    let btn2 = document.querySelector('#btn');
+    btn2.addEventListener('click', function (event) {
+        alert(event.type); // click
+    });
+
+    btn2.addEventListener('click', function (event) {
+        alert('Clicked!');
+    });
+    // RemoveEventListener():
+    //  loại bỏ một trình xử lý sự kiện đã được thêm vào qua addEventListener(). Tuy nhiên, bạn cần phải truyền các đối số giống như đã được truyền cho addEventListener().
+    //  Ví dụ:
+    let btn3 = document.querySelector('#btn');
+
+    // add the event listener
+    let showAlert = function () {
+        alert('Clicked!');
+    };
+    btn3.addEventListener('click', showAlert);
+
+    // remove the event listener
+    btn3.removeEventListener('click', showAlert);
+</script>

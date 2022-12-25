@@ -1,0 +1,57 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  background-color: black;
+}
+.header div a {
+  color: white;
+  text-decoration: none;
+}
+.header a:hover {
+  color: gray;
+}
+
+.main .col-5, .main .col-7 {
+  padding: 10px;
+}
+.main .main-left table {
+  width: 100%;
+}
+.main .main-left table tr td, .main .main-left table th {
+  border: 1px solid rgb(208, 207, 207);
+  padding: 5px;
+  font-size: 14px;
+}
+.main .main-left table th {
+  color: white;
+  background-color: black;
+}
+.main .main-left table tr:nth-child(odd) {
+  background-color: rgb(219, 215, 215);
+}
+.main .main-left table tr button {
+  border: none;
+  border-radius: 3px;
+}
+.main .main-right table tr td {
+  padding: 10px;
+  font-size: 14px;
+}
+.main .main-right table tr td .text {
+  width: 400px;
+}
+.main .main-right #save {
+  border: none;
+  background-color: dodgerblue;
+  color: white;
+  border-radius: 3px;
+}
+
+.footer {
+  background-color: black;
+  height: 50px;
+}/*# sourceMappingURL=qlsp.css.map */

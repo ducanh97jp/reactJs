@@ -1,0 +1,64 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.header {
+    background-color:black;
+    div a {
+        color: white;
+        text-decoration: none;
+    }
+    a:hover {
+        color: gray;
+    }
+}
+.main {
+    .col-5, .col-7 {
+        padding: 10px;
+    }
+    .main-left {
+        table {
+            width: 100%;
+            tr td, th {
+            border: 1px solid rgb(208, 207, 207);
+            padding: 5px;
+            font-size: 14px;
+        }
+        th {
+            color: white;
+            background-color: black;
+        }
+        tr:nth-child(odd) {
+            background-color: rgb(219, 215, 215);
+        }
+        tr button {
+            border: none;
+            border-radius: 3px;
+        }
+    }
+        
+    }
+    .main-right {
+        table {
+            tr td {
+                padding: 10px;
+                font-size: 14px;
+                .text {
+                    width: 400px;
+                }
+                
+            }
+        }
+        #save {
+                    border: none;
+                    background-color:dodgerblue;
+                    color: white;
+                    border-radius: 3px;
+                }
+    }
+}
+.footer {
+    background-color: black;
+    height: 50px;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validation</title>
+</head>
+<body>
+<form>
+    <!-- required
+    Bắt buộc người dùng phải nhập giá trị nếu thuộc tính này được gán true. -->
+  <input name="fullname" type="text" required>
+  <!-- min và max
+Với <input type="number"/> chúng ta dùng min và max để đặt ràng buộc khoảng giá trị nhỏ nhất và lớn nhất. -->
+<input type="number" min="5" max="20">
+<!-- minlength và maxlength
+Với các <input/>, <textarea/>, chúng ta có thể nhập chuỗi. Để ràng buộc độ dài của chuỗi nhập vào, 
+chúng ta có thể sử dụng thuộc tính minlength và maxlength. -->
+<input type="text" minlength="20" maxlength="50">
+  <button>Lưu</button>
+</form>
+
+</body>
+</html>
