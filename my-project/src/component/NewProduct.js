@@ -4,7 +4,13 @@ class NewProduct extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            status : "dang di hoc"
+            status : "dang di hoc",
+            productType : [
+                {value : 1, text: "Đồ da dụng", checked : false},
+                {value : 2, text: "Đồ điện tử", checked : false},
+                {value : 3, text: "Sách", checked : false},
+                {value : 4, text: "Quần áo", checked : false},
+            ]
         }
     }
 
@@ -21,48 +27,58 @@ class NewProduct extends React.Component {
             <table>
                 <tr>
                     <td>Tên sản phẩm</td>
-                    <td><input className="text" type="text" 
-                    value={this.props.Product.name} 
-                    placeholder="Nhập tên sản phẩm ..."/></td>
+                    <td><input className="text" type="text" value={this.props.product.name} placeholder="Nhập tên sản phẩm ..."/></td>
                 </tr>
                 <tr>
                     <td>Mã sản phẩm</td>
-                    <td><input className="text" type="text" value={this.props.Product.id} placeholder="Nhập mã sản phẩm ..."/></td>
+                    <td><input className="text" type="text" value={this.props.product.id} placeholder="Nhập mã sản phẩm ..."/></td>
                 </tr>
                 <tr>
                     <td>Loại sản phẩm</td>
                     <td>
-                        <div className="form-check">
-                            <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                        {
+                            this.state.productType.map(item => {
+                                return <>
+                                    <div className="form-check">
+                                        <input className="form-check-input" type="checkbox" value= {item.value} id="flexCheckDefault" />
+                                        <label className="form-check-label" for="flexCheckDefault">
+                                            {item.text}
+                                        </label>
+                                    </div>
+                                </>
+                            })
+                        }
+                        {/* <div className="form-check">
+                            <input className="form-check-input" type="checkbox" value="1" id="flexCheckDefault"/>
                                 <label className="form-check-label" for="flexCheckDefault">
                                     Đồ gia dụng
                                 </label>
                         </div>
                         <div className="form-check">
-                            <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                            <input className="form-check-input" type="checkbox" value="2" id="flexCheckDefault"/>
                                 <label className="form-check-label" for="flexCheckDefault">
                                     Đồ điện tử
                                 </label>
                         </div>
                         <div className="form-check">
-                            <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                            <input className="form-check-input" type="checkbox" value="3" id="flexCheckDefault"/>
                                 <label className="form-check-label" for="flexCheckDefault">
                                     Quần áo
                                 </label>
                         </div>
                         <div className="form-check">
-                            <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                            <input className="form-check-input" type="checkbox" value="4" id="flexCheckDefault"/>
                                 <label className="form-check-label" for="flexCheckDefault">
                                     Sách
                                 </label>
-                        </div>
+                        </div> */}
                     </td>
                 </tr>
                 <tr>
                     <td>Khuyến mãi</td>
                     <td>
                         <div className="form-check">
-                            <input className="form-check-input" type="radio" name="flexRadioDefault"
+                            <input className="form-check-input" type="radio" name="flexRadioDefault" 
                                 id="flexRadioDefault1"/>
                                 <label className="form-check-label" for="flexRadioDefault1">
                                     Đang khuyến mãi
@@ -78,23 +94,21 @@ class NewProduct extends React.Component {
                     </td>
                 </tr>
                 <tr>
-                    <td>Hàng đang khuyễn mãi</td>
-                    <td></td>
                 </tr>
                 <tr>
                     <td>Đơn vị tính</td>
                     <td>
-                        <select className="form-select" aria-label="Default select example">
-                            <option selected>{this.props.Product.unit}</option>
-                            <option>Cái</option>
-                            <option value="1">Chiếc</option>
-                            <option value="2">Quyển</option>
+                        <select className="form-select" aria-label="Default select example" value={this.props.product.unit}>
+                            <option value="" selected>Đơn vị tính</option>
+                            <option value="1">Cái</option>
+                            <option value="2">Chiếc</option>
+                            <option value="3">Quyển</option>
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <td>Giá sản phẩm</td>
-                    <td><input className="text" type="text" value={this.props.Product.price} placeholder="Nhập giá sản phẩm ..."/></td>
+                    <td><input className="text" type="text" value={this.props.product.price} placeholder="Nhập giá sản phẩm ..."/></td>
                 </tr>
                 <tr>
                     <td>Ngày nhập</td>

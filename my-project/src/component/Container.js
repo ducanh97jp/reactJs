@@ -18,7 +18,7 @@ class Container extends React.Component {
                 {
                     id : 2,
                     name :"Samsung Garaxy",
-                    price : 150.000,
+                    price : 150000,
                     unit : "Cai"
                 }
             ]

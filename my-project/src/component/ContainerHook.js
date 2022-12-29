@@ -1,77 +1,62 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './qlsp.css';
 import NewProduct from './NewProduct';
 import ProductList from './ProductList';
+
 function ContainerHook() {
     const [productList, setProductList] = useState([
         {
-            id : 1,
-            name :"IPhone 14",
-            price : 200000,
-            unit : "Cai"
+            id: 15,
+            name: "IPhone 14",
+            price: 200000,
+            unit: "1",
+            type: ["1", "3"]
         },
         {
-            id : 2,
-            name :"Samsung Garaxy",
-            price : 150.000,
-            unit : "Cai"
+            id: 23,
+            name: "Samsung Garaxy",
+            price: 150.000,
+            unit: "2",
+            type: ["1", "4"]
         }
     ]
     );
-    const [product, setProduct] = useState();
+    const [product, setProduct] = useState({});
     function deleteProduct(id) {
         let arr = [...productList];
-        let index = arr.findIndex(function(i) {
+        let index = arr.findIndex(function (i) {
             return i.id === id;
         });
-        arr.splice(index,1);
-        setProductList({
-            productList : arr
-        })
-        return productList;
+        arr.splice(index, 1);
+        setProductList(arr)
     }
     function editProduct(id) {
-        let arr = [...this.state.productList];
-        let index = arr.findIndex(function(i) {
+        let arr = [...productList];
+        let index = arr.findIndex(function (i) {
             return i.id === id;
         });
         const item = productList[index];
         setProduct({
-            product: {
-                id : item.id,
-                name : item.name,
-                price : item.price,
-                unit : item.unit
-            }
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            unit: item.unit
         })
-    return product;
-}
-
-
-    // cach 2
-    // editProduct = (id) => {
-        // let arr = [...this.state.productList];
-        // let index = arr.findIndex(function(i) {
-        //     return i.id === id;
-        // });
-        // const item = this.state.productList{index};
-        // this.setState({
-            // product: {
-            //     id : item.id,
-            //     name : item.name,
-            //     price : item.price,
-            //     unit : item.unit
-            // }
-        // })
-        // let name = "Iphone 14";
-        // const productList = this.state.productList;
-        return <div class="main container-fluid">
+    }
+    // Kieemr tra xem phần tử của mảng 1 có trong mảng 2 ko
+    let arr1 = ["1", "2"];
+    let arr2 = ["1", "2", "3", "4"];
+    arr2.forEach(x => {
+        arr1.includes(x);
+        console.log(x);
+    })
+    return (
+        <div class="main container-fluid">
             <div className='row'>
-                <ProductList  deleteProduct = {this.deleteProduct} productList = {productList} editProduct = {this.editProduct}/>
-                <NewProduct  Product = {product} editProduct = {this.editProduct}/>
+                <ProductList productList={productList} deleteProduct={deleteProduct} editProduct={editProduct} />
+                <NewProduct product={product} editProduct={editProduct} />
             </div>
         </div>
+    )
 }
-
-
 export default ContainerHook;
