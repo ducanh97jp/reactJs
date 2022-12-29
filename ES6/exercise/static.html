@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    class User {
+        constructor(name, year) {
+            this.name = name;
+            this.year = year;
+        }
+        setHeight(value = 1) {
+            return value * 3;
+    }
+}
+    class People extends User {
+        constructor(height) {
+            super(user.name, user.year);
+            this.height = height;
+    }}
+const user = new User("Anh", 1997);
+const people = new People(1.65);
+console.log(people);
+console.log(people.height);
+console.log(people.setHeight(people.height));
+console.log(user.name);
+console.log(user.year);
+console.log(user.setHeight());
+</script>
