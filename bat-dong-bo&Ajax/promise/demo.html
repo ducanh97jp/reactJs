@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo promise</title>
+</head>
+
+<body>
+    <script>
+        const count = true;
+
+        let countValue = new Promise(function (resolve, reject) {
+            if (count) {
+                resolve("There is a count value.");
+            } else {
+                reject("There is no count value");
+            }
+        });
+
+        console.log(countValue);
+
+        // returns a promise
+
+        let countValue1 = new Promise(function (resolve, reject) {
+            resolve("Promise resolved");
+            reject('Promise rejected');
+        });
+
+        // executes when promise is resolved successfully
+        // Phương thức then() được sử dụng với các callback khi promise được thực hiện thành công hoặc giải quyết.
+        // Khi đó hàm then sẽ tự động lấy kết quả trả về của hầm résolve
+
+        countValue1
+            .then(function successValue(result) {
+                console.log(result);
+            })
+
+            .then(function successValue1() {
+                console.log("You can call multiple functions this way.");
+            })
+                // executes if there is an error
+                // Phương thức catch() được sử dụng với các callback khi promise bị từ chối hoặc nếu một lỗi xảy ra
+                // Khi đó hàm then sẽ tự động lấy kết quả trả về của hàm reject
+            .catch(
+                function errorValue(result) {
+                    console.log(result);
+                });
+    </script>
+</body>
+
+</html>

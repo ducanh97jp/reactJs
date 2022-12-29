@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo async await</title>
+</head>
+<body>
+    <script>
+       // Cú pháp của hàm async:
+
+        // " async function name(parameter1, parameter2, ...paramaterN) {}"
+        // statements 
+        //}
+
+        //Trong đó:
+        //name – tên của hàm
+        //parameter – tham số được truyền cho hàm
+
+        async function f() { 
+            console.log('Async function.'); 
+            return Promise.resolve(1); 
+        }
+        f();
+        //Su dung then()
+        f().then(function(result) { 
+        console.log(result) 
+        });
+        // ke qua la: 1
+
+        let promise = new Promise(function (resolve, reject) { 
+            setTimeout(function () { 
+            resolve('Promise resolved')}, 4000); 
+            });
+            
+            // async function
+            async function asyncFunc() { 
+                try { 
+                // wait until the promise resolves  
+                //ham try tra ve khi ket qua thanh cong
+                    let result = await promise;
+
+                    console.log(result);
+                }
+                catch (error) {
+                    // ham catch tra ve khi ket qua that bai
+                    console.log(error);
+                }
+            
+            // wait until the promise resolves 
+            // ham await doi ham promise hoan thanh moi chay tiep
+            // nen khi co ket qua tu 'hello van o sau'
+            let result = await promise; 
+            
+            console.log(result); 
+            console.log('hello'); 
+            }
+            
+            // calling the async function
+            asyncFunc();
+    </script>
+</body>
+</html>

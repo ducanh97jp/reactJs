@@ -30,15 +30,23 @@
             border-radius: 5px;
             width: 200px;
         }
+        img {
+            margin-top: 20px;
+            height: 200px;
+        }
     </style>
 </head>
 <body>
     <h1>GIPHY PARTY</h1>
-    <h1>sdaf</h1>
     <input id="key" type="text">
     <button id="search" onclick="getImage()">Search Giphy</button>
-    <button id="remove">Remove Images</button>
-    <img id="result">
+    <button id="remove" onclick="deleteImage()">Remove Images</button>
+    <div class="image">
+        <img id="result1" src="">
+        <img id="result2" src="">
+        <img id="result3" src="">
+    </div>
+    
     <script src="http://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="index.js"></script>
 </body>
