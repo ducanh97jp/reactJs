@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        
+</head>
+
+<body>
+<div id="weather" class="container-fluid">
+    <div class="row">
+        <div class="col-md-3" id="item1">
+        </div>
+        <div class="col-md-3" id="item2"></div>
+        <div class="col-md-3" id="item3"></div>
+        <div class="col-md-3" id="item4"></div>
+    </div>
+</div>
+</body>
+
+</html>
+<script src="http://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- <script src="weather.js"></script> -->
+<script>
+    function getJsonWeather(cityName) {
+        return new Promise(function (resolve) {
+            axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName},VN&limit=1&appid=dedddab1284311d95aa66d8a58de9de7`)
+                .then(function (json) {
+                    resolve(json.data[0]);
+                })
+        })
+    }
+
+    function getLatLonWeather(lat, lon) {
+        return new Promise(function (resolve) {
+            axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=dedddab1284311d95aa66d8a58de9de7`)
+                .then(function (json) {
+                    resolve(json.data);
+                })
+        })
+    }
+
+    function getWeather() {
+            getJsonWeather("Ha Noi").then(result => {
+            console.log(result);
+            let lat = result.lat;
+            let lon = result.lon;
+            let name = result.name;
+            getLatLonWeather(lat, lon).then(result => {
+                console.log(result);
+                let Loctemp = ((result.main.temp) - 273.15).toFixed(2);
+                document.getElementById("item1").innerHTML = `
+                    <h5 class="card-title">${name}</h5>
+                    <p class="card-text">Temperature: ${Loctemp}℃</p>
+                    <p class="card-text">Atmospheric pressure: ${result.main.pressure} on sea level</p>
+                    <p class="card-text">Humidity: ${result.main.humidity}%</p>
+                    <p class="card-text">Cloudiness: ${result.clouds.all}%</p>
+                    <p class="card-text">Visibility: ${result.visibility}m</p>
+                    `
+            })
+        })
+
+        getJsonWeather("Da Lat").then(result => {
+            console.log(result);
+            let lat = result.lat;
+            let lon = result.lon;
+            let name = result.name;
+            getLatLonWeather(lat, lon).then(result => {
+                console.log(result);
+                let Loctemp = ((result.main.temp) - 273.15).toFixed(2);
+                document.getElementById("item2").innerHTML = `
+                    <h5 class="card-title">${name}</h5>
+                    <p class="card-text">Temperature: ${Loctemp}℃</p>
+                    <p class="card-text">Atmospheric pressure: ${result.main.pressure} on sea level</p>
+                    <p class="card-text">Humidity: ${result.main.humidity}%</p>
+                    <p class="card-text">Cloudiness: ${result.clouds.all}%</p>
+                    <p class="card-text">Visibility: ${result.visibility}m</p>
+                    `
+            })
+        })
+
+        getJsonWeather("Ho Chi Minh").then(result => {
+            console.log(result);
+            let lat = result.lat;
+            let lon = result.lon;
+            let name = result.name;
+            getLatLonWeather(lat, lon).then(result => {
+                console.log(result);
+                let Loctemp = ((result.main.temp) - 273.15).toFixed(2);
+                document.getElementById("item3").innerHTML = `
+                    <h5 class="card-title">${name}</h5>
+                    <p class="card-text">Temperature: ${Loctemp}℃</p>
+                    <p class="card-text">Atmospheric pressure: ${result.main.pressure} on sea level</p>
+                    <p class="card-text">Humidity: ${result.main.humidity}%</p>
+                    <p class="card-text">Cloudiness: ${result.clouds.all}%</p>
+                    <p class="card-text">Visibility: ${result.visibility}m</p>
+                    `
+            })
+        })
+
+        getJsonWeather("Hue").then(result => {
+            console.log(result);
+            let lat = result.lat;
+            let lon = result.lon;
+            let name = result.name;
+            getLatLonWeather(lat, lon).then(result => {
+                console.log(result);
+                let Loctemp = ((result.main.temp) - 273.15).toFixed(2);
+                document.getElementById("item4").innerHTML = `
+                    <h5 class="card-title">${name}</h5>
+                    <p class="card-text">Temperature: ${Loctemp}℃</p>
+                    <p class="card-text">Atmospheric pressure: ${result.main.pressure} on sea level</p>
+                    <p class="card-text">Humidity: ${result.main.humidity}%</p>
+                    <p class="card-text">Cloudiness: ${result.clouds.all}%</p>
+                    <p class="card-text">Visibility: ${result.visibility}m</p>
+                    `
+            })
+        })
+    }
+        
+        
+    getWeather();
+</script>

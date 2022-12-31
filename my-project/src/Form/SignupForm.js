@@ -2,6 +2,7 @@ import { Form, Formik, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import React, {useState} from 'react'
 
+
 const SignupForm = () => {
   const [form, setForm] = useState({name: "", phone: "", address: ""});
   const validationSchema = Yup.object().shape({
@@ -30,10 +31,10 @@ const SignupForm = () => {
           <ErrorMessage name='name' component="div" className="text-danger"></ErrorMessage>
           <p>Phone:</p>
           <Field name='phone' placeholder='Enret your phone' value={form.phone || ""} onChange={handleChange}></Field>
-          <ErrorMessage name='name' component="div" className="text-danger"></ErrorMessage>
+          <ErrorMessage name='phone' component="div" className="text-danger"></ErrorMessage>
           <p>Address:</p>
           <Field name='address' placeholder='Enret your address' value={form.address || ""} onChange={handleChange}></Field>
-          <ErrorMessage name='name' component="div" className="text-danger"></ErrorMessage>
+          <ErrorMessage name='address' component="div" className="text-danger"></ErrorMessage>
           <br></br>
           <button type='submit'>Submit</button>
         </Form>

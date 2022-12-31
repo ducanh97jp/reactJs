@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './qlsp.css';
-import NewProduct from './NewProduct';
+import NewProductF from './NewproducF';
 import ProductList from './ProductList';
 
 function ContainerHook() {
@@ -54,7 +54,7 @@ function ContainerHook() {
         <div class="main container-fluid">
             <div className='row'>
                 <ProductList productList={productList} deleteProduct={deleteProduct} editProduct={editProduct} />
-                <NewProduct product={product} editProduct={editProduct} />
+                <NewProductF product={product} editProduct={editProduct} />
             </div>
         </div>
     )
