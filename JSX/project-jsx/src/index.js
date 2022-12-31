@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Profile_Card from './exercise/Profile_Card';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <h4>Browser's details: {navigator.userAgent}</h4>
+  // <h4>Browser's details: {navigator.userAgent}</h4>
+  <Profile_Card/>
 
 );
 
