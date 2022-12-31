@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 // import BasicForm from './Form/BasicForm';
 // import SignupForm from './Form/SignupForm';
 // import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
-import StudentList from './exercise/StudentList';
+import StudentList from './exerciseJsx/StudentList';
 
 // const element = <h1>Xin chao</h1>;
 // const root = ReactDOM.createRoot(document.getElementById("root"));
