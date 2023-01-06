@@ -1,23 +1,19 @@
 
 import './App.css';
-// import Header from './component/header';
-// import Footer from './component/footer';
+import Header from './component/header';
+import Footer from './component/footer';
 // import Container from './component/Container';
-// import ContainerHook from './component/ContainerHook';
-
-import Welcome from './ExerciseComponent/Welcome';
+import ContainerHook from './component/ContainerHook';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 function App() {
   return (
    <>
-   <div className='App'>
-    <Welcome name="Admin"/>
-   </div>
-   {/* <Header/> */}
+   
+   <Header/>
    {/* <Container/> */}
-   {/* <ContainerHook/> */}
-   {/* <Footer/> */}
+   <ContainerHook/>
+   <Footer/>
    </>
   );
 }
