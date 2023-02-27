@@ -2,6 +2,8 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto';
+    
 }
 .header {
     background-color:black;
@@ -45,7 +47,7 @@ body {
                 padding: 10px;
                 font-size: 14px;
                 .text {
-                    width: 400px;
+                    width: 200px;
                 }
                 
             }

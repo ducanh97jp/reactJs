@@ -43,18 +43,23 @@ function ContainerHook() {
             unit: item.unit
         })
     }
+    function saveProduct () {
+        const maxId = Math.max(...productList.map(x => x.id));
+        product.id = maxId + 1;
+        setProductList([...productList, product]);
+    }
     // Kieemr tra xem phần tử của mảng 1 có trong mảng 2 ko
-    let arr1 = ["1", "2"];
-    let arr2 = ["1", "2", "3", "4"];
-    arr2.forEach(x => {
-        arr1.includes(x);
-        console.log(x);
-    })
+    // let arr1 = ["1", "2"];
+    // let arr2 = ["1", "2", "3", "4"];
+    // arr2.forEach(x => {
+    //     arr1.includes(x);
+    //     console.log(x);
+    // })
     return (
         <div class="main container-fluid">
             <div className='row'>
                 <ProductList productList={productList} deleteProduct={deleteProduct} editProduct={editProduct} />
-                <NewProduct product={product} editProduct={editProduct} />
+                <NewProduct product={product} editProduct={editProduct}  saveProduct = {saveProduct}/>
             </div>
         </div>
     )

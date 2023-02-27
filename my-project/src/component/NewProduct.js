@@ -4,20 +4,47 @@ class NewProduct extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            status : "dang di hoc",
-            productType : [
-                {value : 1, text: "Đồ da dụng", checked : false},
-                {value : 2, text: "Đồ điện tử", checked : false},
-                {value : 3, text: "Sách", checked : false},
-                {value : 4, text: "Quần áo", checked : false},
-            ]
+            name: "",
+            code: "",
+            price: "",
+            changeByInput: false
         }
     }
+        // status : "dang di hoc",
+    static defaultProps = {
+    productType : [
+        {value : 1, text: "Đồ da dụng", checked : false},
+        {value : 2, text: "Đồ điện tử", checked : false},
+        {value : 3, text: "Sách", checked : false},
+        {value : 4, text: "Quần áo", checked : false},
+    ]}
 
     saveProduct = () => {
-        this.setState ({
-            status : this.state.status === "dang di hoc" ? "da nghi hoc" : "dang di hoc",
+
+        this.props.saveProduct(this.state);
+    }
+     changeValue = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value,
+            changeByInput: true,
         });
+     }
+     editProduct = () => {
+        if (this.props.editItems.length > 0) {
+        this.setState({
+            name: this.props.editItems.name,
+            price: this.props.editItems.price,
+            code: this.props.editItems.code,
+            changeByInput:false
+        })}
+     }
+
+    static getDerivedFromProps = (props, state) => {
+        if(!state.changeByInput) 
+        return {
+            name : props.product.name
+        }
+        return { ...state,changeByInput : false}
     }
     render() {
         return <div className="main-right col-5">
@@ -27,25 +54,25 @@ class NewProduct extends React.Component {
             <table>
                 <tr>
                     <td>Tên sản phẩm</td>
-                    <td><input className="text" type="text" value={this.props.product.name} placeholder="Nhập tên sản phẩm ..."/></td>
+                    <td><input className="text" type="text" name="name" value={this.state.name} onChange={this.changeValue} placeholder="Nhập tên sản phẩm ..."/></td>
                 </tr>
                 <tr>
                     <td>Mã sản phẩm</td>
-                    <td><input className="text" type="text" value={this.props.product.id} placeholder="Nhập mã sản phẩm ..."/></td>
+                    <td><input className="text" type="text" name="code" value={this.state.code} onChange={this.changeValue} placeholder="Nhập mã sản phẩm ..."/></td>
                 </tr>
                 <tr>
                     <td>Loại sản phẩm</td>
                     <td>
                         {
-                            this.state.productType.map(item => {
-                                return <>
+                            this.props.productType.map(item => {
+                                return <React.Fragment key={item.value}>
                                     <div className="form-check">
                                         <input className="form-check-input" type="checkbox" value= {item.value} id="flexCheckDefault" />
                                         <label className="form-check-label" for="flexCheckDefault">
                                             {item.text}
                                         </label>
                                     </div>
-                                </>
+                                </React.Fragment>
                             })
                         }
                         {/* <div className="form-check">
@@ -98,7 +125,7 @@ class NewProduct extends React.Component {
                 <tr>
                     <td>Đơn vị tính</td>
                     <td>
-                        <select className="form-select" aria-label="Default select example" value={this.props.product.unit}>
+                        <select className="form-select" aria-label="Default select example"  value={this.state.unit}>
                             <option value="" selected>Đơn vị tính</option>
                             <option value="1">Cái</option>
                             <option value="2">Chiếc</option>
@@ -108,7 +135,7 @@ class NewProduct extends React.Component {
                 </tr>
                 <tr>
                     <td>Giá sản phẩm</td>
-                    <td><input className="text" type="text" value={this.props.product.price} placeholder="Nhập giá sản phẩm ..."/></td>
+                    <td><input className="text" name="price" type="text" value={this.state.price} onChange={this.changeValue} placeholder="Nhập giá sản phẩm ..."/></td>
                 </tr>
                 <tr>
                     <td>Ngày nhập</td>
@@ -120,7 +147,7 @@ class NewProduct extends React.Component {
                 </tr>
                 <tr>
                     <td></td>
-                    <td><button type='button' onClick="saveProduct()" id="save">Save</button></td>
+                    <td><button type='button' onClick={this.saveProduct} id="save">Save</button></td>
                 </tr>
             </table>
             </form>

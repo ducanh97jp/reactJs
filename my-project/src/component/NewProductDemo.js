@@ -12,8 +12,8 @@ function NewProductF(){
         console.log(newProduct);
     }
 
-    function saveProduct() {
-        saveProduct(newProduct);
+    function saveNewProduct() {
+        props.saveProduct(newProduct);
     }
         return (<div className="main-right col-5">
             <h5>Thông tin sản phẩm</h5>
@@ -32,7 +32,7 @@ function NewProductF(){
                 </tr>
                 <tr>
                     <td></td>
-                    <td><button type='button' onClick={saveProduct} id="save">Save</button></td>
+                    <td><button type='button' onClick={saveNewProduct} id="save">Save</button></td>
                 </tr>
             </table>
             </form>
